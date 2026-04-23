@@ -1,8 +1,7 @@
 {
-  "name": "character-sheet",
-  "version": "1.0.0",
+  "name": "freegliders-roll20-character-sheet",
+  "version": "0.0.1",
   "description": "Freegliders Steampunk TTRPG Character Sheet for Roll20",
-  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -11,8 +10,8 @@
     "url": "git+https://github.com/Komeran/freegliders-roll20-charsheet.git"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Marc Schäfer (Marcedarc)",
+  "license": "GPL-3.0-or-later",
   "bugs": {
     "url": "https://github.com/Komeran/freegliders-roll20-charsheet/issues"
   },

@@ -145,7 +145,11 @@ Freegliders is a custom Victorian fantasy / steampunk tabletop RPG featuring:
 
 ## License
 
-Project license to be determined.
+This project is licensed under the **GNU General Public License v3.0 (GPL-3.0)**.
+
+You are free to use, modify, and distribute this project under the terms of that license.
+
+See the `LICENSE` file for full details.
 
 ---
 
