@@ -3,7 +3,8 @@
   "version": "0.0.1",
   "description": "Freegliders Steampunk TTRPG Character Sheet for Roll20",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "node build.js",
+    "watch": "node build.js"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,11 @@
   "bugs": {
     "url": "https://github.com/Komeran/freegliders-roll20-charsheet/issues"
   },
-  "homepage": "https://github.com/Komeran/freegliders-roll20-charsheet#readme"
+  "homepage": "https://github.com/Komeran/freegliders-roll20-charsheet#readme",
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "esbuild": "^0.28.0",
+    "eslint": "^10.2.1",
+    "globals": "^17.5.0"
+  }
 }

@@ -1,3 +1,6 @@
+import { UpdateMeleeWeapon, UpdateMeleeWeaponRoll } from "../update functions/combat/update-meleeweapons";
+import { UpdateRangedWeapon, UpdateRangedWeaponRoll } from "../update functions/combat/update-rangedweapons";
+
 on("change:repeating_meleeWeapon:meleeWeapon_name", UpdateMeleeWeapon);
 on("change:repeating_meleeWeapon:meleeWeapon_damage", UpdateMeleeWeapon);
 on("change:repeating_meleeWeapon:meleeWeapon_skill", UpdateMeleeWeapon);

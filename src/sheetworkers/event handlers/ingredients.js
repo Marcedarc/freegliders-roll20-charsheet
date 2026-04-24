@@ -1,3 +1,6 @@
+import { UpdateEssence } from "../update functions/update-distributers";
+import { UpdateLoad } from "../update functions/update-inventory";
+
 on("change:essence_fire", UpdateLoad);
 on("change:essence_water", UpdateLoad);
 on("change:essence_earth", UpdateLoad);

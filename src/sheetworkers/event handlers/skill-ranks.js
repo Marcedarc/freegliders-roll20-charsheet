@@ -1,3 +1,10 @@
+import { UpdateArtillery, UpdateBow, UpdateBrawling, UpdateOneHandedMelee, UpdatePistol, UpdateRifle, UpdateShield, UpdateTwoHandedMelee } from "../update functions/skills/update-skills-combat";
+import { UpdateAugmentation, UpdateAutomachinery, UpdateClockworkMechanics, UpdateGunsmithing, UpdateTinkering, UpdateVehicleMechanics } from "../update functions/skills/update-skills-engineering";
+import { UpdateAstronomy, UpdateEconomy, UpdateHistory, UpdateLiterature, UpdateMedicine, UpdateMythology, UpdateNature, UpdateSurvival } from "../update functions/skills/update-skills-knowledge";
+import { UpdateAlchemy, UpdatePrayer, UpdateRunecraft, UpdateSpellwork, UpdateSummoning } from "../update functions/skills/update-skills-magic";
+import { UpdateArtisanship, UpdateAthletics, UpdatePerception, UpdatePiloting, UpdateStealth } from "../update functions/skills/update-skills-physical";
+import { UpdateDeception, UpdateIntimidation, UpdatePerformance, UpdatePersuasion } from "../update functions/skills/update-skills-social";
+
 // Event Listeners for Skill Rank changes
 on("change:athletics", UpdateAthletics);
 on("change:perception", UpdatePerception);

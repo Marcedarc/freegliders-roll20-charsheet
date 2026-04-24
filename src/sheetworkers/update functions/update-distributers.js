@@ -1,13 +1,13 @@
-function SheetOpened() {
-    UpdateAttributes();
-    UpdateBlessings();
-    UpdateSpells();
-    UpdateRituals();
-    UpdateRunes();
-    UpdatePotions();
-}
+import { UpdateBlessings } from "./magic/update-blessings";
+import { UpdatePotions } from "./magic/update-potions";
+import { UpdateRituals } from "./magic/update-rituals";
+import { UpdateRunes } from "./magic/update-runes";
+import { UpdateSpells } from "./magic/update-spells";
+import { UpdateAstronomy, UpdateEconomy, UpdateHistory, UpdateLiterature, UpdateMedicine, UpdateMythology, UpdateNature, UpdateSurvival } from "./skills/update-skills-knowledge";
+import { UpdateAgi, UpdateBod, UpdateCha, UpdateInt, UpdateLog, UpdateWil } from "./update-attributes";
+import { UpdateHP } from "./update-combat";
 
-function UpdateAttributes() {
+export function UpdateAttributes() {
     UpdateAgi();
     UpdateBod();
     UpdateCha();
@@ -16,7 +16,7 @@ function UpdateAttributes() {
     UpdateWil();
 }
 
-function UpdateKnowledgeSkills() {
+export function UpdateKnowledgeSkills() {
     UpdateAstronomy();
     UpdateEconomy();
     UpdateHistory();
@@ -27,11 +27,20 @@ function UpdateKnowledgeSkills() {
     UpdateSurvival();
 }
 
-function UpdateLevelStats() {
+export function UpdateLevelStats() {
     UpdateHP();
 }
 
-function UpdateEssence() {
+export function UpdateEssence() {
+    UpdateSpells();
+    UpdateRituals();
+    UpdateRunes();
+    UpdatePotions();
+}
+
+export function SheetOpened() {
+    UpdateAttributes();
+    UpdateBlessings();
     UpdateSpells();
     UpdateRituals();
     UpdateRunes();

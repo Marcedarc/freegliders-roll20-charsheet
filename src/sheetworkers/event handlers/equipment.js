@@ -1,3 +1,5 @@
+import { UpdateBackContainer, UpdateBackContainerLoad, UpdateBackItem, UpdateEquipment, UpdateLoad } from "../update functions/update-inventory";
+
 on("change:repeating_equipment:equipment_size", UpdateEquipment);
 on("change:repeating_equipment:equipment_count", UpdateEquipment);
 on("change:repeating_equipment:equipment_slots", UpdateLoad);

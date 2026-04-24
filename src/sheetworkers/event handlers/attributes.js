@@ -1,3 +1,6 @@
+import { UpdateAgi, UpdateBod, UpdateCha, UpdateInt, UpdateLog, UpdateWil } from "../update functions/update-attributes";
+import { SheetOpened } from "../update functions/update-distributers";
+
 // Event Listeners for attribute changes
 on("change:agility", UpdateAgi);
 on("change:body", UpdateBod);

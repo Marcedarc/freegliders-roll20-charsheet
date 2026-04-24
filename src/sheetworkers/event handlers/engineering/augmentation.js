@@ -1,3 +1,6 @@
+import { UpdateAugmentAV, UpdateAugmentModuleCapacity } from "../../update functions/engineering/update-augmentation";
+import { UpdateTotalAV } from "../../update functions/update-combat";
+
 on("change:headAugmentAV", UpdateTotalAV);
 on("change:leftEyeAugmentAV", UpdateTotalAV);
 on("change:rightEyeAugmentAV", UpdateTotalAV);

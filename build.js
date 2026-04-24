@@ -1,5 +1,6 @@
 const fs = require("fs");
 const path = require("path");
+const esbuild = require("esbuild");
 
 function read(file) {
     return fs.readFileSync(file, "utf8");
@@ -23,29 +24,50 @@ function readDirFiles(dir, ext) {
     return results.join("\n");
 }
 
-let html = read("./src/index.html");
-let css = read("./src/styles.css");
+async function build() {
+    let html = read("./src/index.html");
+    let css = read("./src/styles.css");
 
-const workerconstants = read("./src/worker-constants.js");
+    const styles = readDirFiles("./src/styles", ".css");
+    const rolltemplates = readDirFiles("./src/rolltemplates", ".html");
 
-const styles = readDirFiles("./src/styles", ".css");
-const workers = readDirFiles("./src/sheetworkers", ".js");
-const rolltemplates = readDirFiles("./src/rolltemplates", ".html");
+    // Bundle JS modules
+    const bundle = await esbuild.build({
+        entryPoints: ["./src/sheetworkers/main.js"],
+        bundle: true,
+        write: false,
+        format: "iife",
+        target: "es2018",
+        minify: true
+    });
 
-css = css.replace("{{styles}}", styles);
-html = html.replace("{{workerconstants}}", workerconstants);
-html = html.replace("{{workers}}", workers);
-html = html.replace("{{rolltemplates}}", rolltemplates);
+    const workers = bundle.outputFiles[0].text;
 
-// inject components
-const components = fs.readdirSync("./src/components");
+    css = css.replace("{{styles}}", styles);
 
-for (const file of components) {
-    const name = file.replace(".html", "");
-    html = html.replace(`{{${name}}}`, read(`./src/components/${file}`));
+    html = html.replace("{{workers}}", workers);
+    html = html.replace("{{rolltemplates}}", rolltemplates);
+
+    // inject components
+    const components = fs.readdirSync("./src/components");
+
+    for (const file of components) {
+        const name = file.replace(".html", "");
+        html = html.replace(
+            `{{${name}}}`,
+            read(`./src/components/${file}`)
+        );
+    }
+
+    fs.mkdirSync("./dist", { recursive: true });
+
+    fs.writeFileSync("./dist/Freegliders.html", html);
+    fs.writeFileSync("./dist/Freegliders.css", css);
+
+    console.log("Compiled successfully.");
 }
 
-fs.writeFileSync("./dist/Freegliders.html", html);
-fs.writeFileSync("./dist/Freegliders.css", css);
-
-console.log("Compiled successfully.");
+build().catch(err => {
+    console.error(err);
+    process.exit(1);
+});

@@ -1,3 +1,5 @@
+import { UpdateDAV, UpdateEquippedShield, UpdateTotalAV } from "../update functions/update-combat";
+
 on("change:torsoTotalAV", UpdateDAV);
 
 on("change:shieldName", UpdateEquippedShield);

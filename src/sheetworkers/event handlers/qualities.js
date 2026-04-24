@@ -1,3 +1,10 @@
+import { UpdateAthletics, UpdateStealth } from "../update functions/skills/update-skills-physical";
+import { UpdateAgi, UpdateBod, UpdateCha, UpdateLog, UpdateWil } from "../update functions/update-attributes";
+import { UpdateEvasion, UpdateHP } from "../update functions/update-combat";
+import { UpdateKnowledgeSkills } from "../update functions/update-distributers";
+import { RemoveNegativeQuality, UpdateNegativeQuality, UpdateNegativeQualityLevel } from "../update functions/update-negativequality";
+import { RemovePositiveQuality, UpdatePositiveQuality, UpdatePositiveQualityLevel } from "../update functions/update-positivequality";
+
 on("change:repeating_positiveQuality:positiveQuality_name", UpdatePositiveQuality);
 on("change:repeating_positiveQuality:positiveQuality_level", UpdatePositiveQualityLevel);
 on("remove:repeating_positiveQuality", RemovePositiveQuality);
